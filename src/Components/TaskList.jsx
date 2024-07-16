@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-const TaskList = ({ tasks,toggleTask }) => {
+const TaskList = ({ tasks, toggleTask, deleteTask }) => {
     return (
         <div className="overflow-x-auto mt-8 md:mt-10 lg:mt-16 xl:mt-20">
             <table className="min-w-full divide-y divide-gray-200">
@@ -31,8 +31,8 @@ const TaskList = ({ tasks,toggleTask }) => {
                                 </label>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-center text-sm md:text-base">
-                                <button  className="bg-gradient-to-br from-purple-600 to-blue-500 text-white px-3 py-1 mr-2 rounded">Edit</button>
-                                <button  className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+                                <button className="bg-gradient-to-br from-purple-600 to-blue-500 text-white px-3 py-1 mr-2 rounded">Edit</button>
+                                <button onClick={() => deleteTask(index)} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
                             </td>
                         </tr>
                     ))}
