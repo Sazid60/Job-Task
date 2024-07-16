@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks,toggleTask }) => {
     return (
         <div className="overflow-x-auto mt-8 md:mt-10 lg:mt-16 xl:mt-20">
             <table className="min-w-full divide-y divide-gray-200">
@@ -22,6 +22,7 @@ const TaskList = ({ tasks }) => {
                                     <input
                                         type="checkbox"
                                         checked={task.completed}
+                                        onChange={() => toggleTask(index)}
                                         className="mr-4 lg:mr-6 xl:mr-10"
                                     />
                                     <span className={task.completed ? 'line-through text-gray-500 text-sm md:text-base' : 'text-sm md:text-base'}>

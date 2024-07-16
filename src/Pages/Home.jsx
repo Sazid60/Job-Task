@@ -21,12 +21,23 @@ const Home = () => {
         setTasks([...tasks, newTask]);
     };
 
+    // Marks as Complete changes in local storage
+    const toggleTask = (index) => {
+        const newTasks = tasks.map((task, i) => {
+            if (i === index) {
+                return { ...task, completed: !task.completed };
+            }
+            return task;
+        });
+        setTasks(newTasks);
+    }; 
+
     return (
         <>
             <div className="text-center p-4">
                 <h1 className="text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-4 md:mb-5 lg:mb-7 xl:mb-10 uppercase">To-Do List</h1>
                 <TaskInput addTask={addTask} />
-                <TaskList tasks={tasks} />
+                <TaskList tasks={tasks} toggleTask={toggleTask} />
             </div>
         </>
     )
