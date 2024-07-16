@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import TaskInput from "../Components/TaskInput";
+import TaskList from "../Components/TaskList";
 
 const Home = () => {
     // This grabs the data saved in Local Storage and allows to set new data
@@ -25,6 +26,7 @@ const Home = () => {
             <div className="text-center p-4">
                 <h1 className="text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-4 md:mb-5 lg:mb-7 xl:mb-10 uppercase">To-Do List</h1>
                 <TaskInput addTask={addTask} />
+                <TaskList tasks={tasks} />
             </div>
         </>
     )

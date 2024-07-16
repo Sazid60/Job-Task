@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 
+// eslint-disable-next-line react/prop-types
 const TaskInput = ({ addTask }) => {
     const [task, setTask] = useState('');
 
