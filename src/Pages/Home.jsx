@@ -30,7 +30,7 @@ const Home = () => {
             return task;
         });
         setTasks(newTasks);
-    }; 
+    };
 
     // Delete Specific Task
     const deleteTask = (index) => {
@@ -38,13 +38,26 @@ const Home = () => {
         setTasks(newTasks);
     };
 
+    // Edits a task Uning Browser Popup
+    const editTask = (index) => {
+        const newTaskText = prompt('Edit task:', tasks[index].text);
+        if (newTaskText) {
+            const newTasks = tasks.map((task, i) => {
+                if (i === index) {
+                    return { ...task, text: newTaskText };
+                }
+                return task;
+            });
+            setTasks(newTasks);
+        }
+    };
 
     return (
         <>
             <div className="text-center p-4">
                 <h1 className="text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-4 md:mb-5 lg:mb-7 xl:mb-10 uppercase">To-Do List</h1>
                 <TaskInput addTask={addTask} />
-                <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask} />
+                <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask} editTask={editTask} />
             </div>
         </>
     )
